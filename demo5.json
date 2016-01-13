@@ -168,6 +168,10 @@
             "DefaultConnection": {
               "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', variables('sqlserverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', 'SQLDatabase', ';User Id=', parameters('sqlserverAdminLogin'), '@', variables('sqlserverName'), ';Password=', parameters('sqlserverAdminLoginPassword'), ';')]",
               "type": "SQLAzure"
+            },
+            "StorageConnection": {
+              "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('StorageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts/', variables('StorageAccountName')),'2015-05-01-preview').key1)]",
+              "type": "custom"
             }
           }
         }
