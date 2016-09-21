@@ -1,7 +1,12 @@
-﻿{
+{
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.4",
   "parameters": {
+      "leadMessage": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "DEMO"
+    },
     "App Service PlanSKU": {
       "type": "string",
       "allowedValues": [
@@ -150,7 +155,7 @@
             "displayName": "AppSettings"
           },
           "properties": {
-            "leadMessage": "Microsoft Azure User Group Poland"
+            "leadMessage": "[parameters('leadMessage')]"
           }
         },
         {
