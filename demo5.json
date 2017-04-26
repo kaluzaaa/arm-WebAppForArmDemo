@@ -216,6 +216,19 @@
             "maxSizeBytes": "1073741824",
             "requestedServiceObjectiveName": "[parameters('SQLDatabaseRequestedServiceObjectiveName')]"
           }
+        },
+        {
+          "name": "AllowAllMicrosoftAzureIps",
+          "type": "firewallrules",
+          "apiVersion": "2014-04-01",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "endIpAddress": "0.0.0.0",
+            "startIpAddress": "0.0.0.0"
+          },
+          "dependsOn": [
+            "[variables('sqlserverName')]"
+          ]
         }
       ]
     },
